@@ -36,6 +36,7 @@ app.use(express.json());
     });
 
     app.get('/sessions/callback', (req, res, next) => {
+        console.log(req)
         if(req.session.oauth){
             req.session.oauth.verifier = req.query.oauth_verifier;
             const oauth_data = req.session.oauth;
