@@ -9,7 +9,7 @@ var oauth = new OAuth(
     "5itLbT4POJAf8TILbB02zgbjU",
     "6yKUX6FVi6AIvd1Rv9f3L7dmZzZvkKdKIfGW6o6pQBw71siTpe",
     "1.0",
-    "http://localhost:8080/sessions/callback",
+    "http://localhost:3000/auth/twitter",
     "HMAC-SHA1"
 );
 
@@ -22,15 +22,15 @@ Auth.route('/')
                  res.send("Authentication Failed!");
              }
              else{
+                
                  req.session = {
                      token: oauth_token,
                      token_secret: oauth_token_secret
                  };
                  console.log(req.session);
-                 res.redirect(`https://twitter.com/oauth/authenticate?oauth_token=${oauth_token}` )
+                 res.json(req.session)
              }
         });
-     }
+     });
      
-     );
 export default Auth;
