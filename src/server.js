@@ -31,7 +31,7 @@ app.use(cookieParser());
 // Routes
 app.use('/auth/twitter', Auth);
 app.use('/sessions/callback', sessions);
-app.use('/twitter/feedd', tweets );
+app.use('/twitter/feed', tweets );
 app.use('/users/acount', tweetsUsers);
 
 app.listen(8080, function() {

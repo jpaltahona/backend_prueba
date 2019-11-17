@@ -8,13 +8,16 @@ const tweets = Router();
 
 tweets.route('/')
    .get( (req, res, next) => {
-    T.get('search/tweets', { q: 'banana since:2011-07-11', count: 10 }, function(err, data, response) {
-        if(err){
-            res.json(err)
-        }
-        else{
-            res.json(data)
-        }
+       //{} req.body;
+    T.get('search/tweets',
+            { q: 'banana', count: 1 }, 
+            (err, data, response) => {
+            if(err){
+                res.json({error: err})
+            }
+            else{
+                res.json(data)
+            }
     })
 })
 
